@@ -9,3 +9,31 @@ if toss==0: # if value equals to 0 then:
     print ("Heads") #head is displayed
 else: # if the toss is not 0 then:
     print ("Tails") # tails is displayed
+    
+
+
+## Question 4 
+### python code saved in fibonacci.py
+## enter n for the numbers of sequence
+nn = int(input("First n numbers of the Fibonacci Sequence. Enter n please "))
+
+# first two terms
+n1 = 0
+n2 = 1
+count = 0
+
+# check if the number of terms is valid
+if nn <= 0:
+   print("Please enter a positive integer")
+elif nn == 1:
+   print("Fibonacci sequence upto",nn,":")
+   print(n1)
+else:
+   print("Fibonacci sequence upto",nn,":")
+   while count < nn:
+       print(n1,end=' , ')
+       nth = n1 + n2
+       # update values
+       n1 = n2
+       n2 = nth
+       count += 1
