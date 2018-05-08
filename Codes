@@ -1,0 +1,11 @@
+
+
+## Question2 
+# python code saved in tosscoin.py 
+# simulates a fair coin toss by writing 'heads' or 'tails', depending on the outcome of a random number generator
+import random # import random library
+toss=random.randint(0,1) #toss variable's value randomly generated between 0 and 1.
+if toss==0: # if value equals to 0 then:
+    print ("Heads") #head is displayed
+else: # if the toss is not 0 then:
+    print ("Tails") # tails is displayed
