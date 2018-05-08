@@ -10,6 +10,34 @@ if toss==0: # if value equals to 0 then:
 else: # if the toss is not 0 then:
     print ("Tails") # tails is displayed
     
+## Question 3
+
+import sys
+
+# Prompt the user to enter taxable income
+income = float(input("Enter the taxable income: "))
+# Compute tax
+tax = 0
+
+if income <= 18200:
+        tax = 0
+        after = income 
+    elif income <= 37000:
+        tax = (income - 18200) * 0.19
+        after = income -(income - 18200)*0.19
+    elif income <= 87000:
+        tax = 3572 + (income - 37000) * 0.325
+        after = income - (3572 + (income - 37000) * 0.325)
+    elif income <= 180000:
+        tax = 19822+ (income - 87000) * 0.37
+        after = income - (19822+ (income - 87000) * 0.37)
+    else:
+        tax = 54532+(income - 180000) * 0.45
+        after = income - (54532+(income - 180000) * 0.45);
+
+# Display the result
+print("Tax is", tax)
+print(“After tax income is”, after)
 
 
 ## Question 4 
