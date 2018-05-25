@@ -1,1 +1,1 @@
-# ACST890Assignment1task1
+Toss coins and fibonacci number 
