@@ -14,30 +14,42 @@ else: # if the toss is not 0 then:
 
 import sys
 
-# Prompt the user to enter taxable income
-income = float(input("Enter the taxable income: "))
-# Compute tax
-tax = 0
+#import locale
+#calculate tax liability and net income
 
-if income <= 18200:
-        tax = 0
-        after = income 
-    elif income <= 37000:
-        tax = (income - 18200) * 0.19
-        after = income -(income - 18200)*0.19
-    elif income <= 87000:
-        tax = 3572 + (income - 37000) * 0.325
-        after = income - (3572 + (income - 37000) * 0.325)
-    elif income <= 180000:
-        tax = 19822+ (income - 87000) * 0.37
-        after = income - (19822+ (income - 87000) * 0.37)
-    else:
-        tax = 54532+(income - 180000) * 0.45
-        after = income - (54532+(income - 180000) * 0.45);
-
-# Display the result
-print("Tax is", tax)
-print(“After tax income is”, after)
+try:
+    income = float(sys.argv[1])
+except (IndexError):
+    sys.exit("No arg on command line...?")
+except (TypeError, ValueError):
+    #print("Number can’t include commas. Exiting....")
+    sys.exit("Number can’t include commas. Exiting....")
+else:
+    if income < 0:
+        print("Negative income...?")
+        sys.exit("No tax liability.")
+print("Your income is: $", sys.argv[1])
+if income < 18200:
+    tax = 0
+    print("No tax liability")
+elif income < 37000:
+    tax = (income-18200)*0.19
+    print(’19% tax bracket: total liability is $ {:.3f}’.format(
+              tax))
+elif income < 87000:
+    tax = (income-37000)*0.325+3572
+    print(’32.5% tax bracket: total liability is $ {:.3f}’.\
+              format(tax))
+elif income < 180000:
+    tax = (income-87000)*0.37+19822
+    print(’37% tax bracket: total liability is $ {:.3f}’.\
+              format(tax))
+else:
+    tax = (income-180000)*0.45+54532
+    print(’45% tax bracket: total liability is $ {:.3f}’.format(
+tax))
+net_income = income-tax
+print(’Your net income is $ {:.3f}’.format(net_income))
 
 
 ## Question 4 
